@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samir Ouhmmou – Développement, automatisation, déploiement</title>
+<meta name="description" content="Portfolio de Samir Ouhmmou, étudiant en Master Ingénierie Informatique. Je développe, j'automatise et je déploie : microservices, CI/CD, Docker, Kubernetes, puis data et deep learning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%2307162E%22/><path d=%22M30 65l20-30 20 30z%22 fill=%22%235EC8F2%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+:root{--bg:#06142B;--navy:#0B2447;--navy2:#13315C;--sky:#5EC8F2;--ice:#BFE7FB;--text:#EAF4FF;--mute:#8CA9C7;--line:rgba(94,200,242,.18);color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(1200px 600px at 85% -10%,#12396e 0,transparent 60%),radial-gradient(900px 500px at -10% 30%,#0d2c58 0,transparent 55%),var(--bg);color:var(--text);font:400 17px/1.65 Inter,system-ui,sans-serif;text-wrap:pretty}
+h1,h2,h3{font-family:Sora,system-ui,sans-serif;line-height:1.08;letter-spacing:-.025em;text-wrap:balance}
+a{color:inherit}:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.bar{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--navy2),var(--sky));transform-origin:0 50%;transform:scaleX(0);z-index:9}
+@supports(animation-timeline:scroll()){.bar{animation:grow linear both;animation-timeline:scroll()}@keyframes grow{to{transform:scaleX(1)}}}
+nav{position:fixed;inset:3px 0 auto;z-index:8;background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px;font-size:15px}
+nav b{font:700 18px Sora}nav ul{display:flex;gap:24px;list-style:none;padding:0}nav a{text-decoration:none;color:var(--mute);transition:color .2s}nav a:hover{color:var(--ice)}
+nav a.dl{color:#04203d;background:var(--sky);padding:6px 14px;border-radius:9px;font-weight:500}nav a.dl:hover{color:#04203d;background:var(--ice)}
+.hero{min-height:100svh;display:grid;align-items:center;padding:110px 0 70px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.me{display:flex;align-items:center;gap:24px;margin-bottom:34px}
+.ph{--a:0deg;width:156px;height:156px;border-radius:50%;padding:4px;background:conic-gradient(from var(--a),var(--sky),var(--navy2),var(--ice),var(--sky));animation:spin 6s linear infinite;flex:none;position:relative}
+@keyframes spin{to{--a:360deg}}
+.ph img,.ph span{width:100%;height:100%;border-radius:50%;object-fit:cover;display:grid;place-items:center;background:var(--navy);font:700 44px Sora}
+.ph span{position:absolute;inset:4px;width:calc(100% - 8px);height:calc(100% - 8px);z-index:0}.ph img{position:relative;z-index:1}
+.me p{color:var(--mute);font-size:16px;line-height:1.4}.me p b{display:block;color:var(--text);font:700 24px Sora;margin-bottom:4px}
+h1{font-size:clamp(42px,6.4vw,82px);font-weight:800}
+h1 span{display:block;background:linear-gradient(100deg,var(--sky),var(--ice));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{margin:24px 0 32px;max-width:48ch;color:#C9DDF1;font-size:19px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:13px 22px;border-radius:12px;text-decoration:none;font-weight:500;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:transform .25s,box-shadow .25s}
+.btn.main{background:linear-gradient(135deg,var(--sky),#3BA7E0);color:#04203d;border:0;box-shadow:0 8px 30px -8px rgba(94,200,242,.6)}
+.btn:hover{transform:translateY(-3px)}
+.pipe{border:1px solid var(--line);border-radius:20px;background:linear-gradient(160deg,rgba(19,49,92,.65),rgba(6,20,43,.8));backdrop-filter:blur(10px);padding:22px;box-shadow:0 30px 80px -30px #000,inset 0 1px 0 rgba(255,255,255,.06)}
+.pipe header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:14px;color:var(--mute)}
+.pipe button{font:inherit;font-size:13px;color:var(--ice);background:rgba(94,200,242,.12);border:1px solid var(--line);border-radius:8px;padding:5px 12px;cursor:pointer}
+.pipe button:hover{background:rgba(94,200,242,.22)}
+.st{display:grid;grid-template-columns:26px 1fr auto;gap:12px;align-items:center;padding:9px 0;position:relative;color:var(--mute);transition:color .3s}
+.st:not(:last-child):after{content:"";position:absolute;left:12px;top:34px;bottom:-9px;width:2px;background:var(--line)}
+.st i{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-style:normal;font-size:13px;background:var(--bg);z-index:1;transition:.3s}
+.st small{font:400 12px "JetBrains Mono",monospace;opacity:.7}
+.st.run{color:var(--ice)}.st.run i{border-color:var(--sky);box-shadow:0 0 0 5px rgba(94,200,242,.18);animation:pulse 1s infinite}
+.st.ok{color:var(--text)}.st.ok i{background:var(--sky);border-color:var(--sky);color:#04203d}
+.st.ok:not(:last-child):after{background:var(--sky)}
+@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(94,200,242,0)}}
+.live{margin-top:14px;padding:10px 14px;border-radius:10px;font:400 13px "JetBrains Mono",monospace;color:var(--mute);background:rgba(0,0,0,.25);min-height:42px}
+.live.go{color:var(--sky)}
+.tl.big{max-width:760px}.tl.big li{padding-bottom:34px;color:#B9D0E8}.tl.big b{display:block;color:var(--text);margin-bottom:2px}
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.cert{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(11,36,71,.5);cursor:zoom-in;transition:transform .3s,border-color .3s}
+.cert:hover{transform:translateY(-4px);border-color:rgba(94,200,242,.55)}
+.cert img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;background:var(--navy)}
+.cert figcaption{padding:14px 18px;font:700 16px Sora}
+.cert.missing{cursor:default}.cert.missing:before{content:"";display:block;aspect-ratio:4/3;background:linear-gradient(135deg,var(--navy2),var(--navy))}
+dialog{border:0;background:transparent;padding:0;max-width:94vw;max-height:92vh;overflow:visible}
+dialog::backdrop{background:rgba(3,10,22,.88);backdrop-filter:blur(6px)}
+dialog img{display:block;max-width:94vw;max-height:88vh;border-radius:12px}
+dialog button{position:absolute;top:-14px;right:-6px;width:40px;height:40px;border-radius:50%;border:0;background:var(--sky);color:#04203d;font-size:24px;cursor:pointer}
+section{padding:100px 0}
+h2{font-size:clamp(30px,4.4vw,48px);margin-bottom:14px}
+.sub{color:var(--mute);max-width:56ch;margin-bottom:40px}
+.about{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{border:1px solid var(--line);border-radius:18px;padding:26px;background:linear-gradient(160deg,rgba(19,49,92,.45),rgba(11,36,71,.2))}
+.card h3{font-size:22px;margin-bottom:8px;color:var(--ice)}.card p{color:#B9D0E8;font-size:16px}
+.proj{--mx:50%;--my:50%;position:relative;border:1px solid var(--line);border-radius:20px;padding:24px 28px;margin-bottom:16px;display:grid;grid-template-columns:260px 1fr;gap:12px 36px;background:rgba(11,36,71,.4);overflow:hidden;transition:border-color .3s}
+.proj:before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(94,200,242,.14),transparent 60%);opacity:0;transition:opacity .3s}
+.proj:hover{border-color:rgba(94,200,242,.55)}.proj:hover:before{opacity:1}
+.proj>*{position:relative}
+.proj h3{font-size:24px;margin-bottom:10px}
+.tag{display:inline-block;font-size:13px;color:var(--sky);margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips i{font:400 12px "JetBrains Mono",monospace;font-style:normal;padding:4px 10px;border-radius:99px;background:rgba(94,200,242,.1);color:var(--ice)}
+.proj p{color:#C3D7EC;align-self:center}
+.proj.top{background:linear-gradient(135deg,rgba(19,49,92,.8),rgba(11,36,71,.5));border-color:rgba(94,200,242,.4)}
+.group{margin:44px 0 18px;font:700 20px Sora;color:var(--mute)}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px}
+.skills .card h3{font-size:18px}
+.cv{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.tl{list-style:none;padding:0;margin-top:26px;position:relative}
+.tl:before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--sky),transparent)}
+.tl li{position:relative;padding:0 0 26px 34px}
+.tl li:before{content:"";position:absolute;left:0;top:7px;width:12px;height:12px;border-radius:50%;background:var(--sky);box-shadow:0 0 0 4px rgba(94,200,242,.2)}
+.tl time{display:block;color:var(--mute);font-size:14px}.tl b{font:700 18px Sora}
+.contact{text-align:center;background:linear-gradient(180deg,transparent,rgba(19,49,92,.5))}
+.contact h2{margin-inline:auto;max-width:18ch}
+.mail{display:inline-block;margin:20px 0 14px;font:700 clamp(20px,4vw,38px) Sora;text-decoration:none;padding:16px 30px;border-radius:18px;background:linear-gradient(135deg,var(--sky),#3BA7E0);color:#04203d;overflow-wrap:anywhere;transition:transform .25s}
+.mail:hover{transform:scale(1.03)}
+.contact p{color:var(--mute)}
+footer{padding:26px 0;text-align:center;color:var(--mute);font-size:14px}
+@supports(animation-timeline:view()){.rise{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 35%}@keyframes rise{from{opacity:0;transform:translateY(40px) scale(.98)}}}
+@media(max-width:860px){nav ul{display:none}.hero .wrap,.cv,.about{grid-template-columns:1fr}.proj{grid-template-columns:1fr}.hero{padding-top:96px}.ph{width:124px;height:124px}.ph span{font-size:34px}.me{gap:18px}.me p b{font-size:20px}section{padding:72px 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="bar"></div>
+<nav><div class="wrap"><b>Samir Ouhmmou</b><ul><li><a href="#projets">Projets</a></li><li><a href="#competences">Compétences</a></li><li><a href="#parcours">Parcours</a></li><li><a href="#certifications">Certifications</a></li><li><a href="#contact">Contact</a></li><li><a class="dl" href="CV_Samir_Ouhmmou.pdf" download>Mon CV</a></li></ul></div></nav>
+
+<header class="hero"><div class="wrap">
+<div>
+<div class="me">
+<div class="ph"><span>SO</span><img src="photo.jpg" alt="Photo de Samir Ouhmmou" width="156" height="156" onerror="this.remove()"></div>
+<p><b>Samir Ouhmmou</b>Master Ingénierie Informatique, Oujda</p>
+</div>
+<h1>Je développe, <span>j'automatise, je déploie.</span></h1>
+<p class="lead">Microservices, pipelines CI/CD, conteneurs et cloud : je construis des applications et je les mets en production sans intervention manuelle. Je les complète avec de la data et du deep learning. Je recherche un stage de 6 mois à partir de janvier / février 2027.</p>
+<div class="btns"><a class="btn main" href="#projets">Voir mes projets</a><a class="btn" href="CV_Samir_Ouhmmou.pdf" download>Télécharger mon CV</a><a class="btn" href="#contact">Me contacter</a></div>
+</div>
+<aside class="pipe" aria-label="Simulation du pipeline CI/CD de QuickOrder">
+<header><span>Pipeline QuickOrder (simulation)</span><button id="push" type="button">git push</button></header>
+<div id="stages"></div>
+<div class="live" id="log" aria-live="polite">En attente d'un commit</div>
+</aside>
+</div></header>
+
+<main>
+<section><div class="wrap">
+<h2>Du code à la production</h2>
+<p class="sub">Je prends en charge toute la chaîne : l'écriture du service, son automatisation, puis son déploiement. La data vient ensuite renforcer mes applications.</p>
+<div class="about">
+<div class="card rise"><h3>Développer</h3><p>Spring Boot, Jakarta EE, Node.js, React. Des API REST et des architectures microservices événementielles avec Kafka.</p></div>
+<div class="card rise"><h3>Automatiser</h3><p>GitHub Actions, Jenkins, Terraform, Ansible. Tests, qualité de code et scans de sécurité à chaque commit.</p></div>
+<div class="card rise"><h3>Déployer</h3><p>Docker, Kubernetes sur Azure et Oracle Cloud, supervision avec Prometheus et Grafana.</p></div>
+</div></div></section>
+
+<section id="projets"><div class="wrap">
+<h2>Projets</h2>
+<p class="sub">Les projets de développement et de déploiement d'abord, puis la data et le deep learning.</p>
+<article class="proj top rise"><div><span class="tag">En cours, 2026</span><h3>QuickOrder</h3><div class="chips"><i>Spring Boot</i><i>Kafka</i><i>PostgreSQL</i><i>Docker</i><i>Kubernetes</i><i>Azure</i><i>Terraform</i></div></div><p>Plateforme de commande et livraison en 8 microservices, avec pipeline CI/CD et déploiement automatisé sur Kubernetes.</p></article>
+<article class="proj rise"><div><h3>Gestion des absences et des notes</h3><div class="chips"><i>Jakarta EE</i><i>MySQL</i><i>REST API</i><i>Docker</i><i>Kubernetes</i></div></div><p>Application en microservices pour suivre les absences et les notes par module, conteneurisée et déployée sur Kubernetes.</p></article>
+<article class="proj rise"><div><h3>Emploi du temps scolaire</h3><div class="chips"><i>Node.js</i><i>Express</i><i>MySQL</i><i>React</i></div></div><p>Application web qui génère automatiquement les emplois du temps grâce à un algorithme génétique.</p></article>
+
+<div class="group">Data et deep learning</div>
+<article class="proj rise"><div><span class="tag">Deep learning</span><h3>Détection de véhicules dans un parking</h3><div class="chips"><i>YOLOv8</i><i>Python</i><i>Google Colab</i></div></div><p>Modèle YOLOv8 entraîné sur Google Colab pour détecter les véhicules dans des images de parking.</p></article>
+<article class="proj rise"><div><h3>Prédiction des prix automobiles</h3><div class="chips"><i>Python</i><i>MLP</i><i>Scikit-learn</i><i>Pandas</i></div></div><p>Réseau de neurones MLP qui prédit le prix de voitures.</p></article>
+<article class="proj rise"><div><h3>Classifier KNN en Java</h3><div class="chips"><i>Java</i><i>Machine Learning</i></div></div><p>Algorithme K-Nearest Neighbors codé en Java, sans bibliothèque externe.</p></article>
+</div></section>
+
+<section id="competences"><div class="wrap">
+<h2>Compétences</h2><p class="sub">Classées par ordre d'usage dans mes projets.</p>
+<div class="skills">
+<div class="card rise"><h3>DevOps et cloud</h3><p>Docker, Kubernetes, GitHub Actions, Jenkins, Terraform, Ansible, Azure, Oracle Cloud, Linux</p></div>
+<div class="card rise"><h3>Backend</h3><p>Java, Spring Boot, Jakarta EE, Node.js, Express, REST API, microservices, Kafka</p></div>
+<div class="card rise"><h3>Monitoring et sécurité</h3><p>Prometheus, Grafana, Trivy, SonarQube</p></div>
+<div class="card rise"><h3>Bases de données</h3><p>PostgreSQL, MySQL, Redis, Flyway, SQL, administration Oracle</p></div>
+<div class="card rise"><h3>Frontend</h3><p>React, JavaScript</p></div>
+<div class="card rise"><h3>Data et IA</h3><p>Python, Pandas, Scikit-learn, Matplotlib, YOLOv8, MLP, KNN, Google Colab, Hadoop</p></div>
+<div class="card rise"><h3>Langages et outils</h3><p>Java, Python, JavaScript, C, C++, Git, GitHub, Jira (Scrum), Maven, Postman</p></div>
+</div></div></section>
+
+<section id="parcours"><div class="wrap">
+<h2>Parcours</h2><p class="sub">Mon chemin, du baccalauréat au Master.</p>
+<ol class="tl big">
+<li class="rise"><time>2025 – 2027</time><b>Master, Ingénierie Informatique</b>Oujda. Développement, DevOps, cloud et data.</li>
+<li class="rise"><time>2025</time><b>Licence, Génie Logiciel</b>Agadir.</li>
+<li class="rise"><time>2024</time><b>Enquêteur, Haut-Commissariat au Plan (HCP)</b>Collecte de données statistiques sur le terrain et administration de questionnaires auprès des citoyens.</li>
+<li class="rise"><time>2021</time><b>Baccalauréat, Sciences Mathématiques B</b>Tiznit.</li>
+</ol></div></section>
+
+<section id="certifications"><div class="wrap">
+<h2>Certifications</h2><p class="sub">Touchez une certification pour l'agrandir.</p>
+<div class="certs">
+<figure class="cert rise" data-src="cert-oracle.jpg"><img src="cert-oracle.jpg" alt="Certificat Oracle Cloud Infrastructure Foundations" loading="lazy" onerror="this.parentNode.classList.add('missing');this.remove()"><figcaption>Oracle Cloud Infrastructure Foundations</figcaption></figure>
+<figure class="cert rise" data-src="cert-ccna.jpg"><img src="cert-ccna.jpg" alt="Certificat CCNA : Introduction to Networks" loading="lazy" onerror="this.parentNode.classList.add('missing');this.remove()"><figcaption>CCNA : Introduction to Networks</figcaption></figure>
+</div></div></section>
+<dialog id="lb" aria-label="Certification agrandie"><img alt=""><button type="button" aria-label="Fermer">×</button></dialog>
+
+<section id="contact" class="contact"><div class="wrap">
+<h2>Parlons de votre stage</h2>
+<a class="mail" href="mailto:ouhmmousamir@gmail.com">ouhmmousamir@gmail.com</a>
+<p><a href="tel:+212657812858">+212 657 81 28 58</a> · Casablanca, Maroc</p>
+</div></section>
+</main>
+<footer>© 2026 Samir Ouhmmou</footer>
+
+<script>
+(()=>{
+const S=[["Commit","git push origin main"],["Build","Maven, image Docker multi-stage"],["Tests","JUnit, Testcontainers"],["Qualité","Analyse SonarQube"],["Sécurité","Scan Trivy"],["Publication","Image envoyée sur DockerHub"],["Déploiement","Rollout Kubernetes sur AKS"]];
+const box=document.getElementById('stages'),log=document.getElementById('log'),btn=document.getElementById('push');
+box.innerHTML=S.map(s=>`<div class="st"><i>✓</i><span>${s[0]}</span><small>${s[1]}</small></div>`).join('');
+const el=[...box.children];let timers=[];
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function run(){timers.forEach(clearTimeout);timers=[];el.forEach(e=>e.className='st');log.className='live go';log.textContent='Pipeline lancé...';
+if(reduce){el.forEach(e=>e.classList.add('ok'));log.textContent='Application en ligne.';return}
+el.forEach((e,i)=>{timers.push(setTimeout(()=>{if(i)el[i-1].className='st ok';e.className='st run';log.textContent='> '+S[i][0].toLowerCase()+' : '+S[i][1]},i*900+300))});
+timers.push(setTimeout(()=>{el[el.length-1].className='st ok';log.textContent='Application en ligne. Prêt pour la prochaine livraison.'},S.length*900+600));
+timers.push(setTimeout(run,S.length*900+7000))}
+btn.onclick=run;run();
+document.querySelectorAll('.proj').forEach(p=>p.addEventListener('pointermove',e=>{const r=p.getBoundingClientRect();p.style.setProperty('--mx',e.clientX-r.left+'px');p.style.setProperty('--my',e.clientY-r.top+'px')}));
+const lb=document.getElementById('lb');
+document.querySelectorAll('.cert').forEach(c=>c.addEventListener('click',()=>{if(c.classList.contains('missing'))return;lb.querySelector('img').src=c.dataset.src;lb.showModal()}));
+lb.addEventListener('click',e=>{if(e.target!==lb.querySelector('img'))lb.close()});
+})();
+</script>
+</body>
+</html>
